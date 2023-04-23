@@ -17,7 +17,7 @@
 
 运行示例：
 
-<img src="pic/run_once.png" alt="run_once" style="zoom:50%;" />
+<img src="pic/run_once.png" alt="run_once" style="zoom:30%;" />
 
 
 
@@ -25,4 +25,4 @@
 
 对 `build.py` 的输出信息稍作修改，生成 `batch_test.py`；注释掉 `proof_of_work.py` 的所有输出信息；配合 Powershell 脚本 `batch_test.ps1` 进行批量测试，将节点总数定为 20，恶意节点的数量从 2 增长到 8，每个比例测试 10 轮，观察其攻击的结果：
 
-<img src="pic/run_batch.png" alt="run_batch" style="zoom: 50%;" />
+<img src="pic/run_batch.png" alt="run_batch" style="zoom:30%;" />
