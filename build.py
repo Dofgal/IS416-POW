@@ -1,4 +1,4 @@
-# 构造与多线程代码
+# 运行相关代码
 import threading
 import time
 from datetime import datetime
@@ -34,7 +34,7 @@ class Generate_mal_block_thread(threading.Thread):
 
     def run(self):
         # 最长链长度小于要求时, 不启动
-        while len(pow.Blockchain) < trigger:
+        while len(pow.Blockchain) <= trigger:
             time.sleep(0.2)
         
         # 确定分叉的节点
@@ -103,6 +103,11 @@ if __name__ == '__main__':
     # 设置恶意区块的参数
     trigger = 5  # 足以触发攻击的区块链长度
     fork_pos = -2  # 在链上构造分支的位置
+    
+    # 如果普通节点数小于 trigger, 则不能设置恶意节点, 否则恶意节点将永久 sleep
+    if total_node_num - mal_node_num < trigger and mal_node_num > 0:
+        print('存在恶意节点时, 普通节点数量不可少于 5')
+        os._exit(1)
     
     # 记录总时间
     ts0 = time.time()
